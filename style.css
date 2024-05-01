@@ -1,0 +1,805 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-family: "barlow", sans-serif;
+    font-size: 18px;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, .about-link{
+    font-family: "Fraunces", serif;
+    font-weight: 900;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    font: inherit;
+}
+
+span, img, ion-con{
+    display: block;
+}
+
+button{
+    font: inherit;
+    background: none;
+    cursor: pointer;
+    border: none;
+}
+
+/*
+ *****************************
+    CSS MAIN CONTAINER STYLE
+ *****************************
+*/
+
+.container{
+    position: relative;
+    background: hsl(26, 100% 99%);
+    max-width: auto;
+    margin: auto;
+    overflow: hidden;
+}
+
+/*
+ *****************************
+    CSS HEADER STYLE
+ *****************************
+*/
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+}
+
+.navbar{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 25px;
+}
+
+.navbar-nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: calc(100% + 25px);
+    left: 25px;
+    right: 25px;
+    gap: 35px;
+    padding: 40px;
+    background: white;
+    box-shadow: 0 10px 40px hsla(0, 0%, 0%, 0.1);
+    transform: scale(0.9);
+    transform-origin: top right;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.25s;
+}
+
+.navbar-nav.active{
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: all;
+}
+
+.navbar-nav::before{
+    content: "";
+    position: absolute;
+    top: -14px;
+    right: -24px;
+    border: 25px solid transparent;
+    border-left-color: white;
+    transform: rotate(45deg);
+}
+
+.navbar-link{
+    color: hsl(213, 9%, 39%);
+}
+
+.btn{
+    background: hsl(51, 100%, 49%);
+    font-family: "Fraunces", serif;
+    font-weight: 700;
+    color: hsl(0, 0%, 100%);
+    text-transform: uppercase;
+    padding: 18px 30px;
+    border-radius: 50px;
+}
+
+.btn:hover{
+    cursor: pointer;
+    transition: 0.15s;
+    background: none;
+    color: #fad400;
+    border: 3px solid #fad400;
+}
+
+.nav-toggle-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    gap: 6px;
+}
+
+.nav-toggle-btn .line{
+    background: white;
+    width: 100%;
+    height: 2px;
+    transition: 0.25s;
+}
+
+.nav-toggle-btn.active .one{
+    transform: translateY(4px) rotate(45deg);
+}
+
+.nav-toggle-btn.active .two{
+    display: none;
+}
+
+.nav-toggle-btn.active .three{
+    transform: translateY(-4px) rotate(-45deg);
+}
+
+/*
+ *****************************
+    CSS HOME STYLE
+ *****************************
+*/
+
+.home{
+    position: relative;
+    height: 540px;
+    overflow: hidden;
+}
+
+.home-banner{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+.home-absolute-content{
+    position: absolute;
+    top: 50%;
+    left: 25px;
+    right: 25px;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.home-heading{
+    color: white;
+    font-size:40px;
+    text-transform: uppercase;
+    latter-spacing: 10px;
+    margin-bottom: 40px;
+}
+
+.arrow-down{
+    display: inline-block;
+    animation: jump-down 2s ease infinite;
+}
+
+@keyframes jump-down {
+    
+    0%, 50%, 100%{
+        transform: translateY(0);
+    }
+    
+    12.5%, 37.5%{
+        transform: translateY(20px);
+    }
+    
+    25%{
+        transform: translateY(10px);
+    }
+}
+
+/*
+ *****************************
+    CSS ABOUT STYLE
+ *****************************
+*/
+
+.about{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.about-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-content{
+    padding: 60px 25px;
+    text-align: center;
+    max-width: 550px;
+    margin: auto;
+}
+
+.about-h2{
+    color: hsl(212, 27%, 19%);
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.about-p{
+    color: hsl(213, 9%, 39%);
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.about-link{
+    position: relative;
+    color: hsl(212, 27%, 19%);
+    font-size: 16px;
+    text-transform: uppercase;
+    z-index: 1;
+}
+
+.about-link::after{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -8px);
+    background:  hsl(51, 100%, 49%);
+    width: calc(100% + 20px);
+    height: 10px;
+    border-radius: 10px;
+    opacity: 0.3;
+    z-index: -1;
+    transition: 0.25s;   
+}
+
+.about-link:hover::after{
+    opacity: 1;
+}
+
+.pink::after{
+    background: hsl(7, 99%, 70%);
+}
+
+/*
+ *****************************
+    CSS SERVICE STYLE
+ *****************************
+*/
+
+.services{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.service-box{
+    position: relative;
+}
+
+.service-box .img-box{
+    height: 100%;
+    overflow: hidden;
+}
+
+
+.service-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.service-absolute-content{
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+    max-width: 380px;
+    padding: 20px;
+}
+
+.service-h3{
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+}
+
+.service-p{
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.service-h3.cyan, .service-p.cyan{
+    color: hsl(167, 40%, 24%);
+}
+
+.service-h3.blue, .service-p.blue{
+    color: hsl(198, 62%, 26%);
+}
+
+/*
+ *****************************
+    CSS TESTIMONIALS STYLE
+ *****************************
+*/
+
+.testimonials{
+    padding: 65px 25px;
+}
+
+.testimonials-h2{
+    color: hsl(210, 4%, 67%);
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 4px;
+    margin-bottom: 80px;
+}
+
+.testimonials-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+}
+
+.testimonials-client{
+    text-align: center;
+}
+
+.client-img-box{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: auto;
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+
+.client-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.client-text{
+    max-width: 350px;
+    color: hsl(213, 9%, 39%);
+    line-height: 1.8;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.client-name{
+    color: hsl(212, 27%, 19%);
+    margin-bottom: 14px;
+}
+
+.client-title{
+    font-size: 14px;
+    color: hsl(210, 4%, 67%);
+}
+
+/*
+ *****************************
+    CSS PROJECTS STYLE
+ *****************************
+*/
+
+.projects{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.project-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*
+ *****************************
+    CSS FOOTER STYLE
+ *****************************
+*/
+
+footer{
+    background: hsl(167, 44%, 70%);
+    padding: 70px 30px;
+}
+
+.footer-brand{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.footer-brand svg{
+    transform: scale(1.4);
+}
+
+.footer-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 55px;
+    margin-bottom: 90px;
+}
+
+.footer-nav a{
+    color: hsl(168, 34%, 41%);
+}
+
+.footer-nav a:hover{
+    color: white;
+}
+
+.social-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.icon{
+    fill: #2C7566;
+}
+
+.icon:hover{
+    fill: white;
+}
+
+
+
+/*
+ *****************************
+    CSS RESPONSIVE STYLE
+ *****************************
+*/
+
+@media (min-width: 576px){
+   
+/*
+ *****************************
+    CSS HOME STYLE
+ *****************************
+*/
+    
+    .home{
+        height: 700px;
+    }
+    
+/*
+ *****************************
+    CSS ABOUT STYLE
+ *****************************
+*/ 
+    
+    .about-img-box{
+        height: 450px;
+        overflow: hidden;
+    }
+    
+/*
+ *****************************
+    CSS TESTIMONIALS STYLE
+ *****************************
+*/    
+    
+    .testimonials{
+        padding: 150px 25px;
+    }
+    
+    .testimonials-h2{
+        font-size: 18px;
+    }
+    
+}
+
+@media (min-width: 768px){
+    
+/*
+ *****************************
+    CSS HEADER STYLE
+ *****************************
+*/
+    
+    .navbar-nav{
+        position: static;
+        opacity: 1;
+        transform: scale(1);
+        pointer-events: all;
+        flex-direction: row;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+    }
+    
+    .navbar-nav::before{
+        display: none;
+    }
+    
+    .navbar-link{
+        font-size: 0.8rem;
+        color: white;
+    }
+    
+    .btn{
+        background: white;
+        color: hsl(212, 27%, 19%);
+        transition: 0.25s;
+    }
+    
+    .btn:hover{
+        background: hsla(0, 0%, 100%, 0.3);
+        color: white;
+        border: none;
+    }
+    
+    .nav-toggle-btn{
+        display: none;
+    }
+ 
+/*
+ *****************************
+    CSS HOME STYLE
+ *****************************
+*/    
+    
+    .home{
+        height: 800px;
+    }
+    
+    .home-heading{
+        font-size: 50px;
+    }
+    
+/*
+ *****************************
+    CSS ABOUT STYLE
+ *****************************
+*/    
+    
+    .about {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .grid-pos-lg{
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+    
+    .about-img-box{
+        height: auto;
+    }
+    
+    .about-content{
+        padding: 60px;
+        text-align: left;
+    }
+    
+    .about-link{
+        margin-left: 10px;
+    }
+    
+/*
+ *****************************
+    CSS SERVICES STYLE
+ *****************************
+*/
+    
+    .services{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .service-box .img-box{
+        height: 600px;
+        overflow: hidden;
+    }
+    
+/*
+ *****************************
+    CSS PROJECTS STYLE
+ *****************************
+*/  
+    
+    .projects{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+}
+
+@media (min-width: 1024px){
+/*
+ *****************************
+    CSS HEADER STYLE
+ *****************************
+*/
+    
+    .navbar{
+        padding: 35px 40px;
+    }
+    
+    .navbar-brand img{
+        width: 170px;
+    }
+    
+    .navbar-nav{
+        gap: 60px;
+    }
+    
+/*
+ *****************************
+    CSS HOME STYLE
+ *****************************
+*/
+    
+    .home-absolute-content{
+        transform: translateY(calc(-50% + -65px));
+    }
+    
+    .home-heading{
+        font-size: 55px;
+        letter-spacing: 9px;
+        margin-bottom: 95px;
+    }
+    
+/*
+ *****************************
+    CSS ABOUT STYLE
+ *****************************
+*/
+    
+    .about-content{
+        max-width: unset;
+        padding: 155px 130px;
+    }
+    
+    .about-h2{
+        font-size: 40px;
+    }
+    
+    .about-p{
+        margin-bottom: 40px;
+    }
+    
+/*
+ *****************************
+    CSS TESTIMONIALS STYLE
+ *****************************
+*/
+    
+    .testimonials{
+        padding: 160px 40px;
+    }
+    
+    .testimonials-h2{
+        font-size: 20px;
+        letter-spacing: 5px;
+    }
+    
+    .testimonials-grid{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+    
+    .client-img-box{
+        margin-bottom: 60px;
+    }
+    
+    .client-text{
+        margin-bottom: 70px;
+    }
+}
+
+@media (min-width: 1440px){
+    /*
+     *****************************
+        CSS HEADER STYLE
+     *****************************
+    */
+        
+        .navbar{
+            padding: 55px 60px;
+        }
+        
+        .navbar-brand img{
+            width: 200px;
+        }
+        
+        .navbar-nav{
+            gap: 60px;
+        }
+        
+    /*
+     *****************************
+        CSS HOME STYLE
+     *****************************
+    */
+        
+        .home-absolute-content{
+            transform: translateY(calc(-45% + -65px));
+        }
+        
+        .home-heading{
+            font-size: 60px;
+            letter-spacing: 9px;
+            margin-bottom: 105px;
+        }
+        
+    /*
+     *****************************
+        CSS ABOUT STYLE
+     *****************************
+    */
+        
+        .about-content{
+            max-width: unset;
+            padding: 165px 140px;
+        }
+        
+        .about-h2{
+            font-size: 50px;
+        }
+        
+        .about-p{
+            margin-bottom: 50px;
+        }
+
+    /*
+     *****************************
+        CSS SERVICES STYLE
+     *****************************
+    */
+
+       .service-box .img-box{
+            height: auto;
+            overflow: hidden;
+        } 
+        
+    /*
+     *****************************
+        CSS TESTIMONIALS STYLE
+     *****************************
+    */
+        
+        .testimonials{
+            padding: 170px 50px;
+        }
+        
+        .testimonials-h2{
+            font-size: 30px;
+            letter-spacing: 7px;
+        }
+        
+        .testimonials-grid{
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        .client-img-box{
+            margin-bottom: 70px;
+        }
+        
+        .client-text{
+            margin-bottom: 80px;
+        }
+    }
