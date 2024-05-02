@@ -467,6 +467,26 @@ footer{
     fill: white;
 }
 
+/*
+ *****************************
+    CSS DESIGN ATTRIBUTE
+ *****************************
+*/
+
+.attribution { 
+    font-size: 11px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.attribution a {
+    color: #2C7566;
+}
+
+.attribution a:hover {
+    color: #79bbae;
+}
+
 
 
 /*
